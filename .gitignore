@@ -1,0 +1,41 @@
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+bin/
+!**/src/main/**
+!**/src/test/**
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+### YARN ###
+/src/resources/third-party/
+/src/main/resources/third-party/
+/src/main/resources/static/third-party/
+bin/
+yarn-error.log
+node_modules
+.DS_store
