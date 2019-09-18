@@ -4,6 +4,7 @@ build/
 bin/
 !**/src/main/**
 !**/src/test/**
+*.swp
 
 ### STS ###
 .apt_generated
