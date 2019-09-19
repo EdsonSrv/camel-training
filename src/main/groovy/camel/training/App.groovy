@@ -8,11 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 
 @SpringBootApplication
 class App {
-    String getGreeting() {
-        return 'Hello world.'
-    }
-
-    static void main(String[] args) {
-			SpringApplication.run(App, args)	
-    }
+	static void main(String[] args) {
+		SpringApplication.run(App, args)	
+	}
 }

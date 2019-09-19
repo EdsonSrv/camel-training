@@ -1,10 +1,25 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
-		    <title>Getting Started: Serving Web Content</title>
-				    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Welcome</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	</head>
 	<body>
-		    <p th:text="'Hello World'" />
+		<div id="app">
+			<h1>{{ message }}</h1>
+		</div>
 	</body>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				message: 'Hello Vue!'
+			},
+			methods:{
+				update: function (numero) {
+				}
+			}
+		})
+	</script>
 </html>

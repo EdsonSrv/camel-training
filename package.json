@@ -1,0 +1,11 @@
+{
+	"name": "monitor-sicoss",
+	"version": "1.0.0",
+	"main": "index.js",
+	"repository": "git@bitbucket.org:ebcdesarrollo/monitor-sicoss.git",
+	"author": "Brandon Vergara <brandon@makingdevs.com>",
+	"license": "MIT",
+	"dependencies":{
+		"vue": "^2.6.10"
+	}	
+}
