@@ -5,6 +5,8 @@ import org.apache.camel.impl.*
 import org.apache.camel.builder.*
 import org.apache.camel.Exchange
 import org.apache.camel.Message
+import org.apache.camel.Processor
+import org.apache.camel.processor.idempotent.FileIdempotentRepository
 
 @Component
 class RouteTest extends RouteBuilder {
@@ -23,15 +25,18 @@ class RouteTest extends RouteBuilder {
           .log("...File \${headers['CamelFileNameOnly']} moved to ACKNOWLEDGMENT...")
 
 		from("file://src/test/resources/filesTest?noop=true")
-      .log("**********************INIT**************************")
-      .to("log:DEBUG?showBody=false&showHeaders=true")
+      .to("log:DEBUG?showBody=true&showHeaders=true")
       .process { Exchange exchange ->
         exchange.getIn().setHeader("backupPath", "path................path")
       }
-      .log("---------------------------------------------------")
       .log("\${headers['backupPath']}")
-      .log("---------------------------------------------------")
-      .to("log:DEBUG?showBody=false&showHeaders=true")
-      .log("**********************END**************************")
+      .to("log:DEBUG?showBody=true&showHeaders=true")
+
+    from("file://src/test/resources/fileNotDupleicates?noop=true")
+      .idempotentConsumer(header("CamelFileName"),
+						FileIdempotentRepository.fileIdempotentRepository(new File("src/test/resources/duplicates.txt")))
+      .to("file://src/test/resources/filesOut")
+      .log("Processed \${headers['CamelFileName']} file")
+      .log("-------------------------------")
   }
 }
