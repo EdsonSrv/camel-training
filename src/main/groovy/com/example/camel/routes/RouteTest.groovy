@@ -27,8 +27,6 @@ class RouteTest extends RouteBuilder {
       .to("log:DEBUG?showBody=false&showHeaders=true")
       .process { Exchange exchange ->
         exchange.getIn().setHeader("backupPath", "path................path")
-        // String outputFile =  (headers.CamelFileNameOnly.matches(/.*\.[0-9]{2}.out$/))?
-        //   "${pathResponseOutTemp}/${headers.CamelFileNameOnly}" : "${pathAcknowledgmentOutTemp}/${headers.CamelFileNameOnly}"
       }
       .log("---------------------------------------------------")
       .log("\${headers['backupPath']}")
